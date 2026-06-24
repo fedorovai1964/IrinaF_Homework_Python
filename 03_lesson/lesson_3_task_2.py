@@ -12,4 +12,4 @@ catalog = [
         ]
 
 for phone in catalog:
-    print(phone.brand, '-', phone.model, '.', phone.phon_number)
+    print(f'{phone.brand} - {phone.model}. {phone.phone_number}')
