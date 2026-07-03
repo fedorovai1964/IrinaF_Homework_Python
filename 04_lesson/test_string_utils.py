@@ -86,3 +86,39 @@ def test_delete_symbol_positive(input_str, symbol, converted_str):
 ])
 def test_delete_symbol_negative(input_str, symbol, converted_str):
     assert string_utils.delete_symbol(input_str, symbol) == converted_str
+
+
+@pytest.mark.none
+def test_capitalize_none():
+    with pytest.raises(AttributeError):
+        string_utils.capitalize(None)           # type: ignore
+
+
+@pytest.mark.none
+def test_trim_none():
+    with pytest.raises(AttributeError):
+        string_utils.trim(None)             # type: ignore
+
+
+@pytest.mark.none
+def test_contains_none_string():
+    with pytest.raises(AttributeError):
+        string_utils.contains(None, 'a')        # type: ignore
+
+
+@pytest.mark.none
+def test_contains_none_symbol():
+    with pytest.raises(TypeError):
+        string_utils.contains('abc', None)        # type: ignore
+
+
+@pytest.mark.none
+def test_delete_symbol_none_string():
+    with pytest.raises(AttributeError):
+        string_utils.delete_symbol(None, 'a')         # type: ignore
+
+
+@pytest.mark.none
+def test_delete_symbol_none_symbol():
+    with pytest.raises(TypeError):
+        string_utils.delete_symbol('abc', None)             # type: ignore
