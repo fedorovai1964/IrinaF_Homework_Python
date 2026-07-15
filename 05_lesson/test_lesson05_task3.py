@@ -10,7 +10,7 @@ def test_multiple_elements():
 
     # Найдите все ссылки на странице (тег <a>).
     num_element = driver.find_elements(By.TAG_NAME, "a")
-    for i, num_el in enumerate(num_element, 1):
+    for num_el in num_element:
         assert num_el.is_displayed()
 
     # Проверьте, что количество ссылок равно 9.
