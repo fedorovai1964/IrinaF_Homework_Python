@@ -47,9 +47,6 @@ def test_session_storage_auth():
     assert url2 == "https://gitflic.ru/user/test_skaypro", "URL не сохранился"
 
     # Проверьте, что URL для пользователя 1 и пользователя 2 различаются.
-    if url2 == url1:
-        print(f"Ошибка, url не должны быть равны: {url1} = {url2}")
-    else:
-        print(f"Все верно, url разные: {url1} != {url2}")
+    assert url2 != url1, f"Ошибка, url не должны быть равны: {url1} = {url2}"
 
     driver.quit()
