@@ -23,9 +23,11 @@ def test_online_shop(driver):
     page_login.login()
     # Добавьте в корзину товары:
     # Sauce Labs Backpack.(add-to-cart-sauce-labs-backpack)
+    page_main.add_product_backpack()
     # Sauce Labs Bolt T-Shirt.(add-to-cart-sauce-labs-bolt-t-shirt)
+    page_main.add_product_bolt_t_shirt()
     # Sauce Labs Onesie.(add-to-cart-sauce-labs-onesie)
-    page_main.add_prodacts()
+    page_main.add_product_onesie()
     # Перейдите в корзину.
     page_main.go_to_shopping_cart()
     # Нажмите Checkout.

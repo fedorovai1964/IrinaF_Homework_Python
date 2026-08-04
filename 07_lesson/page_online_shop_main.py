@@ -10,16 +10,33 @@ class PageShopMain():
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
-
-    def add_prodacts(self):
-        products = [
+        self.products = [
             "add-to-cart-sauce-labs-backpack",
             "add-to-cart-sauce-labs-bolt-t-shirt",
             "add-to-cart-sauce-labs-onesie"
         ]
-        for product in products:
-            self.wait.until(EC.presence_of_element_located((
-                By.ID, product))).click()
+    def add_product_backpack(self):
+        self.wait.until(EC.presence_of_element_located(
+            (By.ID, self.products[0]))).click()
+
+    def add_product_bolt_t_shirt(self):
+        self.wait.until(EC.presence_of_element_located(
+            (By.ID, self.products[1]))).click()
+
+    def add_product_onesie(self):
+        self.wait.until(EC.presence_of_element_located(
+            (By.ID, self.products[2]))).click()
+
+
+    # def add_prodacts(self):
+    #     products = [
+    #         "add-to-cart-sauce-labs-backpack",
+    #         "add-to-cart-sauce-labs-bolt-t-shirt",
+    #         "add-to-cart-sauce-labs-onesie"
+    #     ]
+    #     for product in products:
+    #         self.wait.until(EC.presence_of_element_located((
+    #             By.ID, product))).click()
 
     def go_to_shopping_cart(self):
         shopping_cart = self.wait.until(EC.presence_of_element_located(
