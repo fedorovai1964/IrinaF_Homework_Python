@@ -14,7 +14,10 @@ def test_calculation(driver):
     page_calc = PageCalc(driver)
     page_calc.open()
     page_calc.field_delay()
-    page_calc.button_calc()
+    page_calc.button_calc_seven()
+    page_calc.button_calc_plus()
+    page_calc.button_calc_eight()
+    page_calc.button_calc_equals()
 
     timeout = page_calc.wait_for_result()
     assert 45 <= timeout <= 50, \

@@ -13,6 +13,12 @@ class PageCalc():
         self.url = ("https://bonigarcia.dev/"
                     "selenium-webdriver-java/slow-calculator.html")
         self.wait = WebDriverWait(driver, 50)
+        self.button_calc = [
+            "//span[normalize-space()='7']",
+            "//span[normalize-space()='+']",
+            "//span[normalize-space()='8']",
+            "//span[normalize-space()='=']"
+        ]
 
     # Метод открытия страницы калькулятора
     def open(self):
@@ -26,16 +32,26 @@ class PageCalc():
         delay.send_keys("45")
 
     # Метод для ввода на калькуляторе (цифры, операторы, кнопка =).
-    def button_calc(self):
-        button_calc = [
-            "//span[normalize-space()='7']",
-            "//span[normalize-space()='+']",
-            "//span[normalize-space()='8']",
-            "//span[normalize-space()='=']"
-        ]
-        for button in button_calc:
-            self.wait.until(
-                EC.presence_of_element_located((By.XPATH, button))).click()
+    # Для каждого действия отдельный метод
+    def button_calc_seven(self):
+        button_seven = self.wait.until(EC.presence_of_element_located(
+            (By.XPATH, self.button_calc[0])))
+        button_seven.click()
+
+    def button_calc_plus(self):
+        button_plus = self.wait.until(EC.presence_of_element_located(
+            (By.XPATH, self.button_calc[1])))
+        button_plus.click()
+
+    def button_calc_eight(self):
+        button_eight = self.wait.until(EC.presence_of_element_located(
+            (By.XPATH, self.button_calc[2])))
+        button_eight.click()
+
+    def button_calc_equals(self):
+        button_equals = self.wait.until(EC.presence_of_element_located(
+            (By.XPATH, self.button_calc[3])))
+        button_equals.click()
 
     # Методы проверки,  что в окне отобразится результат 15 через 45 секунд.
 
