@@ -12,10 +12,12 @@ def test_post_positive():
     # очистка данных
     project.delete_project(id)
 
-def test_post_negative(): # Пустое название проекта
+
+def test_post_negative():   # Пустое название проекта
     project = ProjectApi(url)
     result = project.post_create_project("")
     assert result.status_code == 400
+
 
 def test_put_positive():
     project = ProjectApi(url)
@@ -30,7 +32,8 @@ def test_put_positive():
     # очистка данных
     project.delete_project(id)
 
-def test_put_negative(): # Пустое название проекта
+
+def test_put_negative():    # Пустое название проекта
     project = ProjectApi(url)
     result = project.post_create_project("Создание проекта")
     id = result.json()["id"]
@@ -43,6 +46,7 @@ def test_put_negative(): # Пустое название проекта
     # очистка данных
     project.delete_project(id)
 
+
 def test_get_positive():
     project = ProjectApi(url)
     result = project.post_create_project("Мой второй проект")
@@ -54,7 +58,8 @@ def test_get_positive():
     # очистка данных
     project.delete_project(id)
 
-def test_get_negative(): # id = 0
+
+def test_get_negative():     # id = 0
     project = ProjectApi(url)
     result = project.post_create_project("Мой второй проект")
     id = result.json()["id"]

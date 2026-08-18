@@ -1,4 +1,4 @@
-import  requests
+import requests
 from config import token
 
 
@@ -9,8 +9,9 @@ class ProjectApi():
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {token}'
         }
+
     # метод создания проекта
-    def post_create_project(self,name):
+    def post_create_project(self, name):
         payload = {
             "title": name
         }
@@ -19,7 +20,7 @@ class ProjectApi():
         return resp
 
     # метод просмотра проекта
-    def get_project(self,id):
+    def get_project(self, id):
         resp = requests.request(
             "GET", self.url + f"/{id}", headers=self.headers)
         return resp
@@ -34,11 +35,9 @@ class ProjectApi():
         return resp
 
     # метод очистки данных после теста
-    def delete_project(self, id): # "deleted": True,
+    def delete_project(self, id):
         payload = {
             "deleted": True
         }
         requests.request(
             "PUT", self.url + f'/{id}', json=payload, headers=self.headers)
-
-
