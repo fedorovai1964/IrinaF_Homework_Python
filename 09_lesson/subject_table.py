@@ -6,9 +6,10 @@ class SubjectTable:
         "select": text("select * from subject"),
         "select_by_id": text(
             "select * from subject where subject_id = :subject_id"),
-        "max_subject_id": text("select MAX(\"subject_id\") from subject"),
+        "max_subject_id": text("select COALESCE(MAX(subject_id), 0) from \
+                                subject"),
         "insert": text("insert into subject \
-                       (\"subject_id\", \"subject_title\") values \
+                       (subject_id, subject_title) values \
                        (:subject_id, :subject_title)"),
         "update": text("update subject set subject_title = :subject_title\
                         where subject_id = :subject_id"),
