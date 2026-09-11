@@ -21,7 +21,7 @@ class PageShopMain:
             "add-to-cart-sauce-labs-onesie",
         ]
 
-    def add_product_backpack(self):
+    def add_product_backpack(self) -> None:
         """Метод добавления продукта backpack в корзину"""
         with allure.step(f"Добавить продукт {self.products[0][23:]}"):
             self.wait.until(
@@ -43,7 +43,7 @@ class PageShopMain:
                     By.ID, self.products[2]))).click()
 
     @allure.step("Нажать на кнопку перехода в корзину")
-    def go_to_shopping_cart(self):
+    def go_to_shopping_cart(self) -> None:
         """Метод для нажатия на кнопку перехода в корзину"""
         shopping_cart = self.wait.until(
             EC.presence_of_element_located((

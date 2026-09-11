@@ -15,7 +15,7 @@ class PageCheckout:
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
 
-    def fill_checkout(self):
+    def fill_checkout(self) -> None:
         """Метод заполняет форму данными:имя/first-name, фамилия/last-name,
          почтовый индекс/postal-code и нажимает кнопку Continue"""
         with allure.step("Заполнить поле Имя "):
@@ -38,7 +38,7 @@ class PageCheckout:
                 By.ID, "continue")))
             cont.click()
 
-    def total_price(self):
+    def total_price(self) -> str:
         """Метод проверки итоговой стоимости"""
         with allure.step("Получить итоговую стоимость"):
             price = self.wait.until(

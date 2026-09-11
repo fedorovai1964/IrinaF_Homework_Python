@@ -2,7 +2,7 @@ import allure
 import pytest
 from page_online_shop_login import PageShopLogin
 from page_online_shop_main import PageShopMain
-from page_online_shoping_cart import PageOnlineShoppingCart
+from page_online_shopping_cart import PageOnlineShoppingCart
 from page_online_shop_checkout import PageCheckout
 from selenium import webdriver
 
@@ -51,4 +51,5 @@ def test_online_shop(driver):
         total = page_checkout.total_price()
 
     with allure.step("Проверить, что итоговая сумма равна $58.29"):
-        assert "Total: $58.29" in total, f"Total: $58.29 != {total}"
+        assert total == "Total: $58.29"
+

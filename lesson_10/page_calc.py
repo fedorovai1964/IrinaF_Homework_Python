@@ -24,12 +24,12 @@ class PageCalc:
         ]
         self.delay = "45"
 
-    def open(self):
+    def open(self) -> None:
         """Метод открывает страницу калькулятора"""
         with allure.step(f"Открыть страницу калькулятора {self.url}"):
             self.driver.get(self.url)
 
-    def field_delay(self):
+    def field_delay(self) -> None:
         """Метод устанавливает время задержки delay = 45 секунд
         для выполнения операций на калькуляторе"""
         with allure.step(f"Ввести задержку delay = {self.delay} секунд "):
@@ -90,9 +90,9 @@ class PageCalc:
         with allure.step(f"Вычисление задержки {result} секунд"):
             return (result)
 
-    def get_result_text(self):
+    def get_result_text(self) -> str:
         """
-        Возвращает результат в экрана калькулятора
+        Возвращает результат c экрана калькулятора
         :return: str - текст результата на экране калькулятора.
         """
         result = self.driver.find_element(By.CLASS_NAME, "screen").text
